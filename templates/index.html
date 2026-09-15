@@ -145,7 +145,8 @@
                   {% if orders %} {% for order in orders %}
                   <tr>
                     <td>#{{ order.order_id }}</td>
-                    <td>{{ order.items | join(', ') }}</td>
+                    <!-- แก้ไขจุดดึงค่าตรงนี้จาก order.items เป็น order['items'] -->
+                    <td>{{ order['items'] | join(', ') }}</td>
                     <td class="fw-bold text-success">
                       {{ "%.2f"|format(order.total) }} THB
                     </td>
